@@ -25,7 +25,7 @@ lotr_characters = [
 
 def guessing_game():
     """
-    A game that gives the user three tries to guess the name of a 
+    A game that asks the user to guess the name of a 
     character from The Hobbit or The Lord of the Rings
     """
     
@@ -35,6 +35,9 @@ def guessing_game():
     # randomly choose one of the characters
     i = random.randint(0, len(lotr_characters) - 1)
     character = lotr_characters[i]
+    
+    # get the first letter of the character's name
+    character_first_letter = character['first_name'][0]
     
     # get the character's full name
     if character['last_name']: # not all characters have last names
@@ -46,7 +49,8 @@ def guessing_game():
     guessing = True    
     while guessing is True:            
         # ask the user for their guess
-        guess = input("\nCharacter name: ")
+        guess = input("\nCharacter name: ").lower()
+        guessed_first_letter = guess[0]
         
         # if they're right, congratulate them and end the game    
         if guess == character['first_name']:
@@ -55,7 +59,16 @@ def guessing_game():
 
         # if not, tell them whether the first letter in the name is before or after what they guessed
         else:
-            print("Sorry, try again!")
+            if ord(guessed_first_letter) == ord(character_first_letter):
+                print(f"Try again! This character's name "
+                      f"also starts with the letter {guessed_first_letter}.")
+            elif ord(guessed_first_letter) < ord(character_first_letter):
+                print("Try again! This character's name starts with "
+                      "a letter that's later in the alphabet.")
+            else:
+                print("Try again! This character's name starts with "
+                      "a letter that's earlier in the alphabet.")    
+
 
 
 def main():
@@ -66,5 +79,5 @@ if __name__ == '__main__':
 
 # improvements:
     # increase a counter for each guesses
-    # on the the fourth guess, give the user a hint 
-    # quit the game if the user's guess is not correct after the hint
+    # on the fourth guess, ask if the user wants a hint 
+    # quit the game if the user's guess is not correct after the hint?

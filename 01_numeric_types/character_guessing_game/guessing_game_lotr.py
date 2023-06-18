@@ -28,20 +28,32 @@ def guessing_game():
     i = random.randint(0, len(ls.lotr_characters) - 1)
     character = ls.lotr_characters[i]
     
-    guessing = True    
+    guessing = True
+    number_of_guesses = 0    
     while guessing is True:            
+
+        # on the fourth try, ask if the user wants a hint
+        if number_of_guesses == 3:
+            take_hint = input("\nWould you like a hint? (y/n) ").lower()
+            if take_hint == 'y':
+                print(f'\nThis character said, "{character.quote}"')
+        
         # ask the user for their guess
         guess = input("\nCharacter (first name only): ").lower()
         
         # if they're right, congratulate them and end the game    
         if guess == character.first_name:
-            print(f"You're right! I'm thinking of {character.get_full_name().title()}.")
+            print(f"You're right! I'm thinking of "
+                  f"{character.get_full_name().title()}. "
+                  f"\nYou got it in {str(number_of_guesses + 1)} guesses. "
+                  "Nice job! :)")
             guessing = False
 
         # if not, tell them whether the first letter in the name is before or after what they guessed
         else:
             game_message = compare_first_letters(guess, character.first_name)
             print(game_message)
+            number_of_guesses += 1
 
 
 def main():
@@ -49,8 +61,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# improvements:
-    # increase a counter for each guesses
-    # on the fourth guess, ask if the user wants a hint 
-    # quit the game if the user's guess is not correct after the hint?

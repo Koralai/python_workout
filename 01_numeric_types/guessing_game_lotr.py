@@ -1,7 +1,7 @@
 import random
 
 lotr_characters = [
-    { 'first_name': 'arwen', 'last_name': '', 'race': 'elf'},
+    { 'first_name': 'arwen', 'last_name': '', 'race': 'elf'}, # hint with character quote
     { 'first_name': 'eowyn', 'last_name': '', 'race': 'human'},
     { 'first_name': 'aragorn', 'last_name': '', 'race': 'human'},
     { 'first_name': 'elrond', 'last_name': '', 'race': 'elf'},
@@ -23,6 +23,20 @@ lotr_characters = [
     { 'first_name': 'thorin', 'last_name': 'oakenshield', 'race': 'dwarf'},
     ]
 
+def compare_first_letters(str_1, str_2):
+    str_1_lett = str_1[0]
+    str_2_lett = str_2[0]
+    
+    if ord(str_1_lett) == ord(str_2_lett):
+        return (f"Try again! This character's name "
+                f"also starts with the letter {str_1_lett}.")
+    elif ord(str_1_lett) < ord(str_2_lett):
+        return ("Try again! This character's name starts with "
+                "a letter that's later in the alphabet.")
+    else:
+        return ("Try again! This character's name starts with "
+                "a letter that's earlier in the alphabet.")    
+
 def guessing_game():
     """
     A game that asks the user to guess the name of a 
@@ -36,9 +50,6 @@ def guessing_game():
     i = random.randint(0, len(lotr_characters) - 1)
     character = lotr_characters[i]
     
-    # get the first letter of the character's name
-    character_first_letter = character['first_name'][0]
-    
     # get the character's full name
     if character['last_name']: # not all characters have last names
         character_full_name = f"{character['first_name']} {character['last_name']}"
@@ -50,7 +61,6 @@ def guessing_game():
     while guessing is True:            
         # ask the user for their guess
         guess = input("\nCharacter name: ").lower()
-        guessed_first_letter = guess[0]
         
         # if they're right, congratulate them and end the game    
         if guess == character['first_name']:
@@ -59,16 +69,8 @@ def guessing_game():
 
         # if not, tell them whether the first letter in the name is before or after what they guessed
         else:
-            if ord(guessed_first_letter) == ord(character_first_letter):
-                print(f"Try again! This character's name "
-                      f"also starts with the letter {guessed_first_letter}.")
-            elif ord(guessed_first_letter) < ord(character_first_letter):
-                print("Try again! This character's name starts with "
-                      "a letter that's later in the alphabet.")
-            else:
-                print("Try again! This character's name starts with "
-                      "a letter that's earlier in the alphabet.")    
-
+            game_message = compare_first_letters(guess, character['first_name'])
+            print(game_message)
 
 
 def main():

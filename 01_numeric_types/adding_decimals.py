@@ -4,13 +4,22 @@ def add_decimals():
     """
     Take 2 strings from the user, turn them into decimals, and return the sum
     """
-    num_1 = input("Decimal number one: ")
-    num_2 = input("Decimal number two: ")
-    new_sum = Decimal(num_1) + Decimal(num_2)
+    new_sum = Decimal(0)
+    number_counter = 1
+
+    while True:            
+        new_number = input(f"Decimal number {number_counter}: ")
+        
+        if not new_number:
+            break
+        
+        new_sum += Decimal(new_number)
+        number_counter += 1
+
     return float(new_sum)
     
 def main():
-    print("Write two decimal numbers, and I'll add them together.\n")    
+    print("Enter some decimal numbers, and I'll add them together.\n")    
     print(add_decimals())
     
 if __name__ == '__main__':

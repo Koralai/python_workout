@@ -1,9 +1,8 @@
 from decimal import *
 
 def add_decimals():
-    """
-    Take 2 strings from the user, turn them into decimals, and return the sum
-    """
+    """Take inputs from the user, turn them into decimals, and return the sum"""
+    
     new_sum = Decimal(0)
     number_counter = 1
 

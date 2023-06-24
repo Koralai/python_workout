@@ -2,16 +2,14 @@
 
 import random
 
-def nonsense_sentence(file, words_in_sentence, every_nth_word):
-    
+def nonsense_sentence(file, words_in_sentence, every_nth_word):    
     file_text = open(file, encoding='utf-8').read()    
     file_text_words = file_text.split()    
     
-    nonsense_sentence_words = []
-    
+    nonsense_sentence_words = []    
+
     starting_word_index_range = round(len(file_text_words) * 0.4)
-    starting_word_index = random.randint(0, starting_word_index_range)
-    
+    starting_word_index = random.randint(0, starting_word_index_range)    
     last_word_index = starting_word_index + (words_in_sentence * every_nth_word)
     
     for i in range(starting_word_index, last_word_index, every_nth_word):
@@ -28,4 +26,4 @@ def nonsense_sentence(file, words_in_sentence, every_nth_word):
         
     return f"{final_sting_formatted.capitalize()}."
 
-print(nonsense_sentence('sun_also_rises.txt', 15, 20))
+print(nonsense_sentence('lamplighter.txt', 15, 78))

@@ -18,3 +18,9 @@ def sort_string(string):
         output += char
     
     return output    
+
+def sort_string_2(string):
+    """A more concise version of the sort_string function"""
+    sorted_chrs = sorted(string) # sorts the chars, but returns a list
+    
+    return ''.join(sorted_chrs)

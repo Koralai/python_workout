@@ -5,7 +5,7 @@ def alphabetize_names(list_of_people):
     (by last name, then by first name).
     """
     
-    return sorted(list_of_people, key=lambda person: person['last'])
+    return sorted(list_of_people, key=lambda person: (person['last'], person['first']))
     
 PEOPLE = [
     {'first': 'frodo', 'last': 'baggins', 'age': 50,},

@@ -1,3 +1,5 @@
+from operator import itemgetter
+
 def alphabetize_names(list_of_people):
     """
     Take a list of dictionaries containing first and last names.
@@ -5,9 +7,9 @@ def alphabetize_names(list_of_people):
     (by last name, then by first name).
     """
     
-    return sorted(list_of_people, key=lambda person: (person['last'], person['first']))
+    return sorted(list_of_people, key=itemgetter('last','first'))
     
-PEOPLE = [
+HOBBITS = [
     {'first': 'frodo', 'last': 'baggins', 'age': 50,},
     {'first': 'bilbo', 'last': 'baggins', 'age': 111,},
     {'first': 'samwise', 'last': 'gamgee', 'age': 38, },
@@ -16,7 +18,7 @@ PEOPLE = [
 ]    
 
 def main():
-    print(alphabetize_names(PEOPLE))
+    print(alphabetize_names(HOBBITS))
 
 if __name__ == '__main__':
     main()

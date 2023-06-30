@@ -15,14 +15,12 @@ def get_rainfall():
         if not rain_amt:
             break
         
-        if city_name in rainfall:
-            rainfall[city_name] += rain_amt
-        else:
-            rainfall[city_name] = rain_amt
+        # get the value if it exists, or set it to zero, then add the new value
+        rainfall[city_name] = rainfall.get(city_name, 0) + rain_amt
     
     message = '\nRainfall recorded:\n'
-    for key, val in rainfall.items():
-        message += f"{key}: {val} inches\n"
+    for city, rain in rainfall.items():
+        message += f"{city}: {rain} mm\n"
     
     return message
 

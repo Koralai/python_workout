@@ -20,6 +20,10 @@ def get_rainfall():
         else:
             rainfall[city_name] = rain_amt
     
-    return rainfall
+    message = '\nRainfall recorded:\n'
+    for key, val in rainfall.items():
+        message += f"{key}: {val} inches\n"
+    
+    return message
 
 print(get_rainfall())

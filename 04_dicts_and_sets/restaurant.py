@@ -11,6 +11,19 @@ MENU = {
     'yogurt parfait': 3
 }
 
+def get_str_from_list(list_str):
+    """
+    Format a list of strings using commas and 'and' before the last string in the list
+    """    
+    output = ''
+    for item in list_str:
+        if item != list_str[-1]:
+            output += f"{item}, "
+        else:
+            output += f"and {item}"
+            
+    return output
+
 def take_order(menu):
     """
     Take user input for items ordered from the menu. Keep a running
@@ -31,7 +44,8 @@ def take_order(menu):
             price += menu[order]
             items_ordered.append(order)
     
-    price_message = f"You have ordered {len(items_ordered)} items, for a total of ${price:.2f}."
+    price_message = (f"You have ordered {get_str_from_list(items_ordered)}. " 
+                     f"Your total is ${price:.2f}.")
     
     if price > 0:
         return price_message

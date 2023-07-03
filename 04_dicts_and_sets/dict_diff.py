@@ -6,18 +6,9 @@ def dict_diff(dict_1, dict_2):
     # collect all unique keys in a set (using union operator)
     all_keys = dict_1.keys() | dict_2.keys()
     
-    # if values are different, record both values as a list in the output dict
     for key in all_keys:
-        
-        if key in dict_1 and key in dict_2:
-            if dict_1[key] == dict_2[key]:
-                continue
-            output[key] = [dict_1[key], dict_2[key]]
-            
-        elif key in dict_1:
-            output[key] = [dict_1[key], None]
-        else:
-            output[key] = [None, dict_2[key]]
+        if dict_1.get(key) != dict_2.get(key):
+            output[key] = [dict_1.get(key), dict_2.get(key)]
     
     return output
     

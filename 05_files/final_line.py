@@ -1,7 +1,7 @@
-def get_final_line(file):
+def get_final_line(filename):
     """Return the final line in a file"""
     
-    with open(file, encoding="utf-8") as f:
+    with open(filename, encoding="utf-8") as f:
         file_content = f.read()
         file_lines = file_content.splitlines()
     

@@ -163,3 +163,4 @@ cython_debug/
 /02_strings/sun_also_rises.txt
 /02_strings/lamplighter.txt
 /05_files/passwd.txt
+/05_files/wcfile.txt

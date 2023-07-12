@@ -15,9 +15,9 @@ def get_word_count(filename):
             num_words += len(words)
             unique_words.update(words)
     
-    message = (f"This file contains {num_words} words and {len(unique_words)} "
-               f"unique words.\nIt also contains {num_chars} characters.\n"
-               f"It has {num_lines} lines.")
+    message = (f"This file contains {num_words:,} words and {len(unique_words):,} "
+               f"unique words.\nIt also contains {num_chars:,} characters.\n"
+               f"It has {num_lines:,} lines.")
     return message
 
-print(get_word_count('05_files/wcfile.txt'))
+print(get_word_count('02_strings/lamplighter.txt'))

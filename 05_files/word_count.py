@@ -5,8 +5,7 @@ def get_word_count(filename):
     num_chars = 0
     num_words = 0
     num_lines = 0
-    unique_words = []
-    num_unique_words = 0
+    unique_words = set()
     
     with open(filename, encoding='utf-8') as f:
         for line in f:
@@ -14,13 +13,9 @@ def get_word_count(filename):
             num_chars += len(line)
             num_lines += 1
             num_words += len(words)
-            
-            for word in words:
-                if word not in unique_words:
-                    unique_words.append(word)
-                    num_unique_words += 1
+            unique_words.update(words)
     
-    message = (f"This file contains {num_words} words and {num_unique_words} "
+    message = (f"This file contains {num_words} words and {len(unique_words)} "
                f"unique words.\nIt also contains {num_chars} characters.\n"
                f"It has {num_lines} lines.")
     return message

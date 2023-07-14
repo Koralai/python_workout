@@ -14,9 +14,16 @@ def get_most_frequent_words(filename):
             
             for word in words:
                 if word not in excluded_words:
+                    if word != 'I':
+                        word = word.lower()
+                    # strip out initial and final punctuation
+                    if word[-1] in '?!;.,:"”)':
+                        word = word[:-1]
+                    if word[0] in '("“':
+                        word = word[1:]
                     # increment the count for that word 
                     word_count[word] = word_count.get(word, 0) + 1
     
     return word_count
 
-print(get_most_frequent_words('05_files/wcfile.txt'))
+print(get_most_frequent_words('02_strings/sun_also_rises.txt'))

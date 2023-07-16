@@ -15,16 +15,15 @@ def get_word_count(filename):
             words = line.split()
             
             for word in words:
+                if word != 'I':
+                    word = word.lower()
+                    
                 if word not in excluded_words:
-
                     # strip out initial and final punctuation
                     if word[-1] in '?!;.,:"”)':
                         word = word[:-1]
                     if word[0] in '("“':
                         word = word[1:]
-                        
-                    if word != 'I':
-                        word = word.lower()
                         
                     # increment the count for that word 
                     word_count[word] = word_count.get(word, 0) + 1

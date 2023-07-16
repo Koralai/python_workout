@@ -6,8 +6,7 @@ def get_words_set(filename):
       
     words_set = set()
     with open(filename, encoding='utf-8') as word_list:
-        for line in word_list:
-            word = line.split()
-            words_set.update(word)
+        for word in word_list:
+            words_set.add(word.strip())
     
     return words_set

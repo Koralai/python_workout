@@ -1,4 +1,4 @@
-def get_highest_vals(dict_name):
+def sort_by_highest_vals(dict_name):
     """
     Takes in a dictionary. Sorts the data by highest value, and returns the 
     sorted data as a list of tuples (each containing a key and its value).

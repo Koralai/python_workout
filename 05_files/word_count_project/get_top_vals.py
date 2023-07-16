@@ -1,7 +1,7 @@
-def get_top_vals(dict_name, num_x):
+def get_highest_vals(dict_name):
     """
-    Takes in a dictionary (which has numbers for values) and a number, x.
-    Returns the highest [x] number of values (e.g., the top 10 highest).
+    Takes in a dictionary. Sorts the data by highest value, and returns the 
+    sorted data as a list of tuples (each containing a key and its value).
     """
     
     # sort the dict by value 
@@ -9,12 +9,8 @@ def get_top_vals(dict_name, num_x):
     keys_sorted_by_vals = sorted(dict_name, key=dict_name.get, reverse=True)
     
     # reassociate the vals with the sorted keys
-    sorted_data = []
-    
-    i = 1
+    sorted_data = []    
     for key in keys_sorted_by_vals:
-        if i <= num_x:
-            sorted_data.append((key, dict_name.get(key)))
-            i += 1
+        sorted_data.append((key, dict_name.get(key)))
     
     return sorted_data

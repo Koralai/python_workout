@@ -26,5 +26,3 @@ def find_longest_word(filename):
                         longest_word_length = len(word)
                     
     return longest_word
-
-print(find_longest_word('02_strings/lamplighter.txt'))

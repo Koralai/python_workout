@@ -1,3 +1,14 @@
+def exclude_word(word):
+    """
+    Return true if a word should be excluded; 
+    return false if it doesn't need to be excluded.
+    """
+    
+    if word[:4] == 'http':
+        return True
+
+    return False
+
 def find_longest_word(filename):
     """Read a file and return the longest word in that file"""
     
@@ -7,10 +18,12 @@ def find_longest_word(filename):
         
         for line in new_file:
             words = line.split()
+            
             for word in words:
                 if len(word) > longest_word_length:
-                    longest_word = word
-                    longest_word_length = len(word)
+                    if exclude_word(word) is False:
+                        longest_word = word
+                        longest_word_length = len(word)
                     
     return longest_word
 

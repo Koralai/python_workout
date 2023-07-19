@@ -13,11 +13,8 @@ def find_all_longest_words(directory):
     for name in dir_contents:
         file_path = directory + name
         
-        # skip directories
-        if os.path.isdir(file_path) is True:
-            continue
-        
-        longest_words[name] = find_longest_word(file_path)
+        if os.path.isfile(file_path):    
+            longest_words[name] = find_longest_word(file_path)
 
     return longest_words
 

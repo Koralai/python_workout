@@ -20,7 +20,7 @@ def get_characters_by_sex(filename_r, filename_w, sex='f'):
                 output_characters.append((first_name, last_name, fantasy_race))
                 
     with open(filename_w, 'w', newline='', encoding='utf-8') as new_character_file:
-        csv_writer = csv.writer(new_character_file, delimiter='\t')
+        csv_writer = csv.writer(new_character_file, delimiter='|')
         
         for character in output_characters:
             if character[1] == '': # no last name
@@ -32,5 +32,5 @@ def get_characters_by_sex(filename_r, filename_w, sex='f'):
                 
 get_characters_by_sex(
     '05_files/csv_mini_project/lotr_characters.csv',
-    '05_files/csv_mini_project/lotr_f_characters.csv', 'f'
+    '05_files/csv_mini_project/lotr_m_characters.csv', 'm'
     )

@@ -18,7 +18,7 @@ def sort_scores_by_subject(list_of_students):
     return scores
         
 
-def get_scores(dir_name):
+def summarize_scores(dir_name):
     """
     Take the name of a directory that should hold json data on student scores.
     Print a summary of the scores found in each json file.
@@ -40,4 +40,4 @@ def get_scores(dir_name):
                           f"average {sum(scores)/len(scores):.2f}")
                 
 
-print(get_scores('05_files/json/scores/'))
+print(summarize_scores('05_files/json/scores/'))

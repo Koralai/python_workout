@@ -27,9 +27,10 @@ def get_scores(dir_name):
     
     for item in dir_contents:
         path_full = os.path.join(dir_name, item)
-        print(f"{path_full}:")
         
         if os.path.isfile(path_full):
+            print(f"{path_full}:")
+            
             with open(path_full, encoding='utf-8') as f:
                 student_data = json.load(f)
                 score_data = sort_scores_by_subject(student_data)

@@ -3,7 +3,8 @@ import json
 
 def sort_scores_by_subject(list_of_students):
     """
-    Take a list of student scores and return the scores sorted by subject
+    Take a list of scores sorted by student 
+    and return the scores sorted by school subject
     """
     scores = {}
     
@@ -19,18 +20,23 @@ def sort_scores_by_subject(list_of_students):
 
 def get_scores(dir_name):
     """
-    Take the name of a directory that should hold data on student scores.
-    Return a summary of the scores found in the directory.
+    Take the name of a directory that should json data on student scores.
+    Print a summary of the scores found in each json file.
     """
     dir_contents = os.listdir(dir_name)
     
     for item in dir_contents:
         path_full = os.path.join(dir_name, item)
+        print(f"{item}:")
         
         if os.path.isfile(path_full):
             with open(path_full, encoding='utf-8') as f:
                 student_data = json.load(f)
-                print(sort_scores_by_subject(student_data))
+                score_data = sort_scores_by_subject(student_data)
+                
+                for subject, scores in score_data.items():
+                    print(f"\t{subject}: min {min(scores)}, max {max(scores)}, "
+                          f"average {sum(scores)/len(scores):.2f}")
                 
 
 print(get_scores('05_files/json/scores/'))

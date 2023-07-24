@@ -6,6 +6,7 @@ def reverse_lines(input_file, output_file):
     
     with open(input_file) as input_f, open(output_file, 'w') as output_f:
         for line in input_f:
-            output_f.write(''.join(reversed(line)))
+            reversed_line = ''.join(reversed(line.rstrip()))
+            output_f.write(f"{reversed_line}\n")
             
 reverse_lines('05_files/wcfile.txt', '05_files/wcfile_reversed.txt')

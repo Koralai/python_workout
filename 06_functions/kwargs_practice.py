@@ -1,7 +1,7 @@
-def list_rankings(**kwargs):
+def list_rankings(**rankings):
     output = ''
-    for key, value in kwargs.items():
-        output += f'{key}: {value}\n'
+    for rank, name in rankings.items():
+        output += f'{rank}: {name}\n'
     
     return output
 

@@ -1,7 +1,7 @@
 def apply_to_each(funct, iterable):
     """
     Take a function (that takes a single argument) and an iterable. 
-    Apply to function to each item in the iterable.
+    Apply the function to each item in the iterable.
     """
     output = []
     

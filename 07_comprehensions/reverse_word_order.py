@@ -1,14 +1,10 @@
 def reverse_word_order(line):
     """Reverse the order of words in a line of text."""
-    
     words = line.split()
-    output = []
-    
-    for word in words:
-        output.insert(0, word)
+    reverse_ord_words = words[::-1]
         
-    return ' '.join(output)
+    return ' '.join(reverse_ord_words)
 
-line_1 = "shall I compare thee to a summer's day"
+line_1 = "shall I compare thee"
 
 print(reverse_word_order(line_1))

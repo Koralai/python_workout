@@ -4,11 +4,11 @@ def find_sum_numbers(string):
     (i.e., the word contains no digits)
     """
     items = string.split()
-    output = [item 
+    output = [int(item)
               for item in items
               if item.isdigit() is True]
     
-    return output
+    return sum(output)
 
 my_string = 'high score 99 low score 62 class 7b'
 print(find_sum_numbers(my_string))

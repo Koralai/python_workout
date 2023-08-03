@@ -23,5 +23,5 @@ def write_csv_no_blanks(filename_r, filename_w):
             
 write_csv_no_blanks(
     '05_files/csv_mini_project/lotr_characters.csv',
-    '07_comprehensions/lotr_characters_no_blanks.csv')
+    '05_files/csv_mini_project/lotr_characters_no_blanks.csv')
             

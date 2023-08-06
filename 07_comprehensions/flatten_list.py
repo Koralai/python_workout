@@ -1,11 +1,9 @@
 def flatten_list(list_of_lists):
     """Take a list of lists and return all data as a single list."""
     
-    output = []
-    
-    for one_list in list_of_lists:
-        for item in one_list:
-            output.append(item)
+    output = [item 
+              for one_list in list_of_lists
+              for item in one_list]
             
     return output
 

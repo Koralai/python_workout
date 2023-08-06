@@ -10,10 +10,10 @@ def file_to_pig_latin(file_name):
     """Read a file and return the file's contents translated into pig Latin."""
     
     with open(file_name, encoding='utf-8') as read_file:
-        output = [pig_latin(word)
+        output = ' '.join(pig_latin(word)
                   for one_line in read_file
-                  for word in one_line.split()]
+                  for word in one_line.split())
                 
-    return ' '.join(output)
+    return output
                         
 print(file_to_pig_latin('02_strings/sun_also_rises.txt'))

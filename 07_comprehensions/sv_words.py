@@ -1,5 +1,6 @@
 def is_supervocalic(word):
     """Return "True" if a word is supervocalic, "False" if not."""
+    
     all_vowels = {'a','e','i','o','u'}
     word_vowels = set()
     
@@ -11,6 +12,7 @@ def is_supervocalic(word):
         return True
     return False
 
+
 def find_supervocalic_words(file_name):
     """
     Read a file that contains one word per line. Return a set of all
@@ -18,4 +20,8 @@ def find_supervocalic_words(file_name):
     five vowels).
     """
     
-print(is_supervocalic('boatbuilder'))
+    return {word.strip()
+            for word in open(file_name, encoding='utf-8')
+            if is_supervocalic(word.strip())}
+    
+print(find_supervocalic_words('07_comprehensions/words.txt'))

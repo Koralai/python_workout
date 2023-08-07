@@ -164,3 +164,4 @@ cython_debug/
 /02_strings/lamplighter.txt
 /05_files/passwd.txt
 /05_files/wcfile.txt
+/07_comprehensions/words.txt

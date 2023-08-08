@@ -8,5 +8,3 @@ def get_gematria(word):
         gematria_value += gk.gematria_key[letter]
     
     return gematria_value
-    
-print(get_gematria('cat'))

@@ -5,6 +5,6 @@ def get_gematria(word):
     gematria_value = 0
     
     for letter in word.lower():
-        gematria_value += gk.gematria_key[letter]
+        gematria_value += gk.GEMATRIA_KEY[letter]
     
     return gematria_value

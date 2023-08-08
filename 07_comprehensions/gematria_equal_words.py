@@ -8,13 +8,9 @@ def gematria_equal_words(word, ref_file):
     """
     
     current_gematria_val = get_gematria(word)
-    gm_equal_words = []
-    
-    with open(ref_file) as available_words:
-        for file_word in available_words:
-            if get_gematria(file_word.strip()) == current_gematria_val:
-                gm_equal_words.append(file_word.strip())
                     
-    return gm_equal_words
+    return [one_word.strip()
+            for one_word in open(ref_file)
+            if get_gematria(one_word.strip()) == current_gematria_val]
 
-print(gematria_equal_words('cat', '07_comprehensions/words.txt'))
+print(gematria_equal_words('landrover', '07_comprehensions/words.txt'))

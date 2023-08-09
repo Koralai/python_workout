@@ -12,10 +12,7 @@ def calculate_tax(price, province, hour):
         'zeppo': 0.4,
     }
     
-    if hour == 0:
-        tax_per_hour = 1
-    else:
-        tax_per_hour = hour / 24
+    tax_per_hour = hour / 24.0
     
     tax = price * (tax_per_province[province.lower()]) * tax_per_hour
     

@@ -1,4 +1,4 @@
-BRACKETS = {
+INCOME_BRACKETS = {
     1: 11000,
     2: 44725,
     3: 95375,
@@ -33,10 +33,10 @@ MARGINAL_RATE = {
 def get_tax_bracket(income):
     """Assign an income to the correct tax bracket."""
     
-    if income >= BRACKETS[HIGHEST_BRACKET]:
+    if income >= INCOME_BRACKETS[HIGHEST_BRACKET]:
         return HIGHEST_BRACKET   
 
-    for bracket, amt in BRACKETS.items():
+    for bracket, amt in INCOME_BRACKETS.items():
         if income <= amt:
             return bracket
 
@@ -45,7 +45,7 @@ def calculate_income_tax(income):
     """A basic model to estimate income tax based on U.S. tax brackets."""
     
     bracket = get_tax_bracket(income)
-    prev_bracket = BRACKETS[bracket - 1]
+    prev_bracket = INCOME_BRACKETS[bracket - 1]
     min_tax = MINIMUM_TAX[bracket]
     marg_rate = MARGINAL_RATE[bracket]
     

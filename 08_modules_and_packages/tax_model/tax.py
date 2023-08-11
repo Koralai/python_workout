@@ -15,11 +15,12 @@ def calculate_income_tax(income):
     """A basic model to estimate income tax based on U.S. tax brackets."""
     
     bracket = get_tax_bracket(income)
-    prev_bracket = td.INCOME_BRACKETS[bracket - 1]
     min_tax = td.MINIMUM_TAX[bracket]
     marg_rate = td.MARGINAL_RATE[bracket]
     
     if bracket == 1:
         return income * marg_rate
+    
+    prev_bracket = td.INCOME_BRACKETS[bracket - 1]
     
     return min_tax + ((income - prev_bracket) * marg_rate)

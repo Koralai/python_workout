@@ -1,12 +1,12 @@
-def menu(**kwargs):
+def menu(**options):
     """
     Take a dictionary with any number of keys; the values are all callables.
     If the user's input matches one of the keys, call the associated value.
     """
-        
-    user_msg = input("What would you like to search for? ").lower()
+    option_string = ' / '.join(sorted(options))    
+    user_msg = input(f"Enter an option: {option_string} ").lower()
     
-    if user_msg in kwargs.keys():
-        return kwargs[user_msg]()
+    if user_msg in options:
+        return options[user_msg]()
     
     return 'No results found'

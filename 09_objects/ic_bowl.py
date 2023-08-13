@@ -1,15 +1,15 @@
 from ic_scoop import Scoop
 
 class Bowl:
-    def __init__(self, current_scoops=[]):
-        self.current_scoops = current_scoops
+    def __init__(self):
+        self.current_scoops = []
         
     def add_scoops(self, *new_scoops):
         for scoop in new_scoops:
-            self.current_scoops.append(scoop.flavor)
+            self.current_scoops.append(scoop)
     
     def __repr__(self):
-        return f'{self.current_scoops}'
+        return ', '.join(s.flavor for s in self.current_scoops)
 
 s_1 = Scoop('coffee')
 s_2 = Scoop('vanilla')

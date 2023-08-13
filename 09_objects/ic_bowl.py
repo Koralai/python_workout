@@ -7,6 +7,9 @@ class Bowl:
     def add_scoops(self, *new_scoops):
         for scoop in new_scoops:
             self.current_scoops.append(scoop.flavor)
+    
+    def __repr__(self):
+        return f'{self.current_scoops}'
 
 s_1 = Scoop('coffee')
 s_2 = Scoop('vanilla')
@@ -15,4 +18,4 @@ s_3 = Scoop('chocolate fudge')
 b = Bowl()
 b.add_scoops(s_1)
 b.add_scoops(s_2, s_3)
-print(b.current_scoops)
+print(b)

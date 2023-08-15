@@ -4,8 +4,7 @@ class Bowl:
     def __init__(self):
         self.current_scoops = []
     
-    # assume that each new scoop will be an instance of Scoop    
-    def add_scoops(self, *new_scoops):
+    def add_scoops(self, *new_scoops: Scoop):
         for scoop in new_scoops:
             self.current_scoops.append(scoop)
     

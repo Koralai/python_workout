@@ -12,10 +12,8 @@ class Bowl:
         self.current_scoops = []
     
     def add_scoops(self, *new_scoops: Scoop):
-        num_scoops = len(self.current_scoops)
         for scoop in new_scoops:
-            num_scoops += 1
-            if num_scoops <= Bowl.MAX_SCOOPS:
+            if len(self.current_scoops) < Bowl.MAX_SCOOPS:
                 self.current_scoops.append(scoop)
     
     def __repr__(self):

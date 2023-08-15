@@ -1,4 +1,4 @@
-from ic_scoop import Scoop
+from ice_cream import Scoop
 
 def create_scoops(flavor_1, flavor_2, flavor_3):
     """Use the Scoop class to create 3 scoops of ice cream."""

@@ -1,5 +1,5 @@
-from ic_scoop import Scoop
-from ic_scoop import Bowl
+from ice_cream import Scoop
+from ice_cream import Bowl
 
 s_1 = Scoop('coffee')
 s_2 = Scoop('vanilla')

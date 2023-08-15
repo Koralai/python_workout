@@ -19,6 +19,12 @@ class Shelf:
             price += one_book.price
         return price
     
+    def has_book(self, book_title: str):
+        for one_book in self.current_books:
+            if one_book.title == book_title.lower():
+                return True
+        return False
+    
     def __repr__(self):
         titles = [one_book.title
                   for one_book in self.current_books]
@@ -32,3 +38,5 @@ shelf_1 = Shelf()
 shelf_1.add_book(b_1, b_2)
 shelf_1.add_book(b_3)
 print(shelf_1)
+print(f"Total cost of the books on this shelf: ${shelf_1.total_price():.2f}")
+print(shelf_1.has_book('romeo and juliet'))

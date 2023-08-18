@@ -18,4 +18,6 @@ class Bowl:
     
     def __repr__(self):
         return ', '.join(s.flavor for s in self.current_scoops)
-    
+
+class BigBowl(Bowl):
+    MAX_SCOOPS = 5

@@ -17,7 +17,19 @@ class Envelope:
         else:
             print('More postage needed!')
 
+class BigEnvelope(Envelope):
+    def __init__(self, weight=2):
+        super().__init__(weight)
+    
+    def postage_needed(self):
+        return self.weight * 1.5
+
 my_letter = Envelope()
 my_letter.send()
 my_letter.add_postage(0.63)
 my_letter.send()
+
+big_letter = BigEnvelope()
+big_letter.send()
+big_letter.add_postage(3)
+big_letter.send()

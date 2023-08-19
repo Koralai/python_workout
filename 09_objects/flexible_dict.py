@@ -10,14 +10,13 @@ class FlexibleDict(dict):
             
             # check if the key exists if converted to a string
             if str(key) in self:
-                return super().__getitem__(str(key))
+                key = str(key)
             
             # only convert the key to an int if it's a string of numbers               
             elif isinstance(key, str) and key.isdigit():
-                
             # check if the key exists if converted to an int
                 if int(key) in self:
-                    return super().__getitem__(int(key))
+                    key = int(key)
             
             else:
                 return 'Key not found.'

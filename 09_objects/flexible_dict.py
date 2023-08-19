@@ -4,25 +4,25 @@ class FlexibleDict(dict):
     Example: dict[1] and dict['1'] are both valid.
     """
     
-    def __getitem__(self, __key):
+    def __getitem__(self, key):
         
-        if __key not in self:
+        if key not in self:
             
             # check if the key exists if converted to a string
-            if str(__key) in self:
-                return super().__getitem__(str(__key))
+            if str(key) in self:
+                return super().__getitem__(str(key))
             
             # only convert the key to an int if it's a string of numbers               
-            elif isinstance(__key, str) and __key.isdigit():
+            elif isinstance(key, str) and key.isdigit():
                 
             # check if the key exists if converted to an int
-                if int(__key) in self:
-                    return super().__getitem__(int(__key))
+                if int(key) in self:
+                    return super().__getitem__(int(key))
             
             else:
                 return 'Key not found.'
         
-        return super().__getitem__(__key)
+        return super().__getitem__(key)
 
 fd = FlexibleDict()
 

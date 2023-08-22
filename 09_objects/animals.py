@@ -5,7 +5,7 @@ class Animal:
         self.number_of_legs = number_of_legs
         
     def __repr__(self):
-        return f"A {self.color} {self.species} with {self.number_of_legs} legs"
+        return f"A {self.color} {self.species.lower()} with {self.number_of_legs} legs"
 
 class Sheep(Animal):
     def __init__(self, color):

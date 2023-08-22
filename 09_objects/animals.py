@@ -1,42 +1,28 @@
-class Sheep:
-    def __init__(self, color):
+class Animal:
+    def __init__(self, color, species='', number_of_legs=0):
         self.color = color
-        self.species = 'sheep'
-        self.number_of_legs = 4
+        self.species = species
+        self.number_of_legs = number_of_legs
         
     def __repr__(self):
         return f"A {self.color} {self.species} with {self.number_of_legs} legs"
 
-class Wolf:
-    def __init__(self, color):
-        self.color = color
-        self.species = 'wolf'
-        self.number_of_legs = 4
-        
-    def __repr__(self):
-        return f"A {self.color} {self.species} with {self.number_of_legs} legs"
+class Sheep(Animal):
+    def __init__(self, color, species='sheep', number_of_legs=4):
+        super().__init__(color, species, number_of_legs)
 
-class Snake:
-    def __init__(self, color):
-        self.color = color
-        self.species = 'snake'
-        self.number_of_legs = 0
+class Wolf(Animal):
+    def __init__(self, color, species='wolf', number_of_legs=4):
+        super().__init__(color, species, number_of_legs)
 
-    def __repr__(self):
-        return f"A {self.color} {self.species} with {self.number_of_legs} legs"
+class Snake(Animal):
+    def __init__(self, color, species='snake', number_of_legs=0):
+        super().__init__(color, species, number_of_legs)
 
-class Parrot:
-    def __init__(self, color):
-        self.color = color
-        self.species = 'parrot'
-        self.number_of_legs = 2
-
-    def __repr__(self):
-        return f"A {self.color} {self.species} with {self.number_of_legs} legs"
+class Parrot(Animal):
+    def __init__(self, color, species='parrot', number_of_legs=2):
+        super().__init__(color, species, number_of_legs)
 
 
 henry = Sheep('black')
-print(henry.color)
-print(henry.species)
-print(henry.number_of_legs)
 print(henry)

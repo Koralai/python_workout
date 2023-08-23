@@ -30,6 +30,26 @@ class Parrot(Animal):
         super().__init__(color, number_of_legs=2, sound='squawk',
                          food_chain_type='omnivore')
 
+class Zebra(Animal):
+    def __init__(self):
+        super().__init__(color='black and white', number_of_legs=4, sound='neigh',
+                         food_chain_type='herbivore')
+
+class Giraffe(Animal):
+    def __init__(self):
+        super().__init__(color='yellow', number_of_legs=4, sound='...',
+                         food_chain_type='herbivore')
+
+class Tiger(Animal):
+    def __init__(self, color):
+        super().__init__(color, number_of_legs=4, sound='growl',
+                         food_chain_type='carnivore')
+
+class Elephant(Animal):
+    def __init__(self, color):
+        super().__init__(color, number_of_legs=4, sound='pawoo',
+                         food_chain_type='herbivore')                        
+
 class Cage:
     def __init__(self, id_num):
         self.id_num = id_num
@@ -47,7 +67,7 @@ class Cage:
                     self.caged_animals.append(animal)
                 else:
                     print(f"Oops! You shouldn't put {animal.food_chain_type}s "
-                          f"in the same cage with {''.join(current_animal_types)}s.")
+                          f"in the same cage with {''.join(current_animal_types[0])}s.")
     
     def set_free_animals(self, *animals: Animal):
         for animal in animals:
@@ -58,17 +78,3 @@ class Cage:
                                for animal in self.caged_animals]
         
         return f"Animals in cage #{self.id_num}: {', '.join(animal_descriptions)}"
-
-henry = Sheep('black')
-print(henry)
-daisy = Parrot('green')
-print(daisy.number_of_legs)
-print(daisy)
-sirius = Wolf('black')
-print(sirius)
-
-c1 = Cage(1)
-c1.add_animals(henry, daisy, sirius, henry)
-print(c1)
-c1.set_free_animals(henry)
-print(c1)

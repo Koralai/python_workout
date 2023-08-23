@@ -34,6 +34,10 @@ class Cage:
         for animal in animals:
             self.caged_animals.append(animal)
     
+    def set_free_animals(self, *animals: Animal):
+        for animal in animals:
+            self.caged_animals.remove(animal)
+    
     def __repr__(self):
         animal_descriptions = [f"{animal.color} {animal.species.lower()}" 
                                for animal in self.caged_animals]
@@ -49,5 +53,7 @@ sirius = Wolf('black')
 print(sirius)
 
 c1 = Cage(1)
-c1.add_animals(henry, daisy)
+c1.add_animals(henry, daisy, sirius)
+print(c1)
+c1.set_free_animals(henry)
 print(c1)

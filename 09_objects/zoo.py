@@ -25,6 +25,13 @@ class Zoo:
                     output.append(animal)
         return output
     
+    def total_legs_in_zoo(self):
+        leg_count = 0
+        for animals in self.cages.values():
+            for animal in animals:
+                leg_count += animal.number_of_legs
+        return leg_count
+    
     def __repr__(self):
         output = ''
         for cage_id, animals in self.cages.items():
@@ -57,3 +64,4 @@ print(city_zoo)
 
 print(city_zoo.animals_by_color('yellow'))
 print(city_zoo.animals_by_legs(4))
+print(f"Number of legs of all animals in the zoo: {city_zoo.total_legs_in_zoo()}")

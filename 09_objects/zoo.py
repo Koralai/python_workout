@@ -17,6 +17,14 @@ class Zoo:
                     output.append(animal)
         return output
     
+    def animals_by_legs(self, num_legs):
+        output = []
+        for animals in self.cages.values():
+            for animal in animals:
+                if animal.number_of_legs == num_legs:
+                    output.append(animal)
+        return output
+    
     def __repr__(self):
         output = ''
         for cage_id, animals in self.cages.items():
@@ -48,3 +56,4 @@ city_zoo.add_cages(cage_1, cage_2)
 print(city_zoo)
 
 print(city_zoo.animals_by_color('yellow'))
+print(city_zoo.animals_by_legs(4))

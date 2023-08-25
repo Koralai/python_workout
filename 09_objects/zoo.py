@@ -9,7 +9,7 @@ class Zoo:
         for cage in new_cages:
             self.cages[cage.id_num] = cage.caged_animals
     
-    def animals_by_color(self, color):
+    def animals_by_color(self, color: str):
         output = []
         for animals in self.cages.values():
             for animal in animals:
@@ -17,7 +17,7 @@ class Zoo:
                     output.append(animal)
         return output
     
-    def animals_by_legs(self, num_legs):
+    def animals_by_legs(self, num_legs: int):
         output = []
         for animals in self.cages.values():
             for animal in animals:

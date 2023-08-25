@@ -9,10 +9,18 @@ class Zoo:
         for cage in new_cages:
             self.cages[cage.id_num] = cage.caged_animals
     
+    def animals_by_color(self, color):
+        output = []
+        for animals in self.cages.values():
+            for animal in animals:
+                if animal.color == color.lower():
+                    output.append(animal)
+        return output
+    
     def __repr__(self):
         output = ''
         for cage_id, animals in self.cages.items():
-            desc_animals = [f"{animal.color} {animal.species.lower()}" 
+            desc_animals = [f"{animal.color} {animal.species}" 
                             for animal in animals]
             output += f"Cage #{cage_id}: {', '.join(desc_animals)}\n"
         
@@ -31,10 +39,12 @@ lucille = Snake('yellow')
 city_zoo = Zoo()
 
 cage_1 = Cage(1)
-cage_1.add_animals(hulk, harry, rowena)
+cage_1.add_animals(hulk, elaine, harry, rowena)
 
 cage_2 = Cage(2)
 cage_2.add_animals(sheila, blake, lucille)
 
 city_zoo.add_cages(cage_1, cage_2)
 print(city_zoo)
+
+print(city_zoo.animals_by_color('yellow'))

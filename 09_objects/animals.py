@@ -1,14 +1,14 @@
 class Animal:
     def __init__(self, color, number_of_legs, sound, food_chain_type):
         self.color = color
-        self.species = self.__class__.__name__
+        self.species = self.__class__.__name__.lower()
         self.number_of_legs = number_of_legs
         self.sound = sound
         self.food_chain_type = food_chain_type
         
-    def __repr__(self):
-        return (f'"{self.sound.capitalize()}!" says the {self.color} '
-                f"{self.species.lower()} with {self.number_of_legs} legs.")
+    # def __repr__(self):
+    #     return (f'"{self.sound.capitalize()}!" says the {self.color} '
+    #             f"{self.species.lower()} with {self.number_of_legs} legs.")
 
 class Sheep(Animal):
     def __init__(self, color):
@@ -74,7 +74,7 @@ class Cage:
             self.caged_animals.remove(animal)
     
     def __repr__(self):
-        animal_descriptions = [f"{animal.color} {animal.species.lower()}" 
+        animal_descriptions = [f"{animal.color} {animal.species}" 
                                for animal in self.caged_animals]
         
         return f"Animals in cage #{self.id_num}: {', '.join(animal_descriptions)}"

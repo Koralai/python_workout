@@ -69,7 +69,7 @@ class Cage:
                     print(f"Oops! You shouldn't put {animal.food_chain_type}s "
                           f"in the same cage with {''.join(current_animal_types[0])}s.")
     
-    def set_free_animals(self, *animals: Animal):
+    def remove_animals(self, *animals: Animal):
         for animal in animals:
             self.caged_animals.remove(animal)
     

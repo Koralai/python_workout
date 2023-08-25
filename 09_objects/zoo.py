@@ -8,7 +8,7 @@ class Zoo:
     def add_cages(self, *new_cages: Cage):
         for cage in new_cages:
             self.cages[cage.id_num] = cage.caged_animals
-    
+        
     def animals_by_color(self, color: str):
         output = []
         for animals in self.cages.values():

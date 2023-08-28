@@ -5,10 +5,10 @@ def all_lines_in_dir(dir_name):
     
     dir_contents = (one_file 
                     for one_file in os.listdir(dir_name) 
-                    if os.path.isfile(dir_name + one_file))
+                    if os.path.isfile(os.path.join(dir_name, one_file)))
     
     for one_file in dir_contents:
-        file_path = dir_name + one_file
+        file_path = os.path.join(dir_name, one_file)
         
         with open(file_path, encoding="utf-8") as current_file:
             for one_line in current_file:

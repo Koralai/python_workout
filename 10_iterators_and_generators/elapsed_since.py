@@ -3,7 +3,7 @@ from time import perf_counter
 def iter_time_elapsed(iterable):
     """
     A generator function that loops through an iterable and yields the time
-    elapsed since the previous iteration.
+    elapsed during each iteration.
     """
     
     for element in iterable:
